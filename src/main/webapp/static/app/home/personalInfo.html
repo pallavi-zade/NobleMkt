@@ -1,0 +1,496 @@
+
+<div id="Personal" class="">
+    <div data-ng-controller="homeController">
+        <data-ng-form name="addEditPersonalInfo" novalidate>
+            <div class="">
+                <div class="col-md-9 col-lg-9 col-sm-12">
+                    <div id="tmm-form-wizard">
+                        <div class="stage-container">
+                            <div class="row">
+                                <div class="stage tmm-current col-md-4 col-sm-4 col-xs-4">
+                                    <div class="stage-header head-icon head-icon-lock">
+                                        <img src="images/personal.png" alt="" />
+                                    </div>
+                                    <div class="stage-content">
+                                        <h3 class="stage-title">Personal Information</h3>
+
+                                    </div>
+                                </div>
+                                <!--/ .stage-->
+
+                                <div class="stage col-md-4 col-sm-4 col-xs-4">
+                                    <div class="stage-header head-icon head-icon-user">
+                                        <img src="images/entity.png" alt="" />
+                                    </div>
+
+                                    <div class="stage-content">
+                                        <h3 class="stage-title">Entity Information</h3>
+
+                                    </div>
+                                </div>
+                                <!--/ .stage-->
+
+                                <div class="stage col-md-4 col-sm-4 col-xs-4 last">
+                                    <div class="stage-header head-icon head-icon-payment">
+                                        <img src="images/lock.png" alt="" />
+                                    </div>
+                                    <div class="stage-content">
+                                        <h3 class="stage-title">Account Information</h3>
+
+                                    </div>
+                                </div>
+                                <!--/ .stage-->
+                            </div>
+                        </div>
+                        <div id="sticky-anchor"></div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="relative">
+                        <h3 class="heading">Personal Details</h3>
+                        <i class="pull-right accordion active btn-collapse"></i>
+                        <div class="panel show">
+                            <div class="col-md-12 col-lg-12 col-sm-12 box-theme">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="row">
+                                                <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>Title</label> <select class="form-control width94"
+                                                                                     data-ng-model="KYCModel.personalInfoModel.salutation">
+                                                            <option selected="selected" value="">-Select-</option>
+                                                            <option>Mr</option>
+                                                            <option>Mrs</option>
+                                                            <option>Ms</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 col-lg-8 col-sm-8 col-xs-12">
+                                                    <div class="form-group"
+                                                         data-ng-class="{ 'error' : addEditPersonalInfo.firstName.$invalid && addEditPersonalInfo.$submitted}">
+
+                                                        <label>First Name <span class="error">*</span></label> <input type="text"
+                                                                                         class="form-control" name=firstName
+                                                                                         data-ng-model="KYCModel.personalInfoModel.firstName"
+                                                                                         required alphabets>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.lastName.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>Last Name<span class="error">*</span></label> <input type="text"
+                                                                                class="form-control" name="lastName"
+                                                                                data-ng-model="KYCModel.personalInfoModel.lastName" required alphabets>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Maiden Name</label> <input type="text"
+                                                                                  class="form-control"
+                                                                                  data-ng-model="KYCModel.personalInfoModel.maidenName" alphabets>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group" data-ng-class="{ 'has-error' : dobRequired && addEditPersonalInfo.$submitted}">
+                                                <label>Date Of Birth<span class="error">*</span></label>
+                                                <div class='input-group date' id='dateofBirth'>
+                                                    <input type='text' class="form-control" name="dateofBirth" data-ng-model=" KYCModel.personalinfomodel.dob" readonly="readonly" />
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Gender</label> <select class="form-control"
+                                                                              data-ng-model="KYCModel.personalInfoModel.gender">
+                                                    <option value="">-Select-</option>
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+
+                                            <div class="form-group" data-ng-class="{'has-error' : addEditPersonalInfo.socialSecurityNumber.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>
+                                                    SSN<span id="emailMsg" class="has-error"
+                                                             data-ng-show="addEditPersonalInfo.socialSecurityNumber.$invalid  && addEditPersonalInfo.$submitted">Invalid SSN</span>
+                                                </label>
+                                                <input type="text" class="form-control" name="socialSecurityNumber" data-ng-model="KYCModel.personalInfoModel.socialSecurityNumber" ssn>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.citizenshipCountry.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>Country of Citizenship<span class="error">*</span></label> <select class="form-control" name="citizenshipCountry"
+                                                                                              data-ng-options="country.name as country.name for country in listData.countryList"
+                                                                                              data-ng-model="KYCModel.personalInfoModel.citizenshipCountry"
+                                                                                              required>
+                                                    <option value="">-Select-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.birthCountry.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>Country of Birth<span class="error">*</span></label> <select class="form-control"
+                                                                                        data-ng-options="country.name as country.name for country in listData.countryList"
+                                                                                        data-ng-model="KYCModel.personalInfoModel.birthCountry"
+                                                                                        name="birthCountry" required>
+                                                    <option value="">-Select-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Marital Status</label> <select class="form-control"
+                                                                                      data-ng-model="KYCModel.personalInfoModel.maritalStatus">
+                                                    <option value="">-Select-</option>
+                                                    <option>Single</option>
+                                                    <option>Married</option>
+                                                    <option>Divorced</option>
+                                                    <option>Widower</option>
+                                                    <option>Widow</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="relative">
+                        <h3 class="heading">Contact Details</h3>
+                        <i class="pull-right accordion active btn-collapse"></i>
+                        <div class="panel show">
+                            <div class="col-md-12 col-lg-12 col-sm-12 box-theme">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.homeAddress.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>Home Address<span class="error">*</span></label> <input type="text"
+                                                                                   class="form-control" name="homeAddress"
+                                                                                   data-ng-model="KYCModel.personalInfoModel.homeAddress"
+                                                                                   required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Street Address 2</label> <input type="text"
+                                                                                       class="form-control"
+                                                                                       data-ng-model="KYCModel.personalInfoModel.streetAddress2">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.country.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>Country<span class="error">*</span></label> <select class="width58 form-control"
+                                                                               data-ng-options="country as country.name for country in listData.countryList"
+                                                                               data-ng-model="KYCModel.personalInfoModel.country"
+                                                                               data-ng-change="getState(KYCModel.personalInfoModel.country)"
+                                                                               name="country" required>
+                                                    <option value="">-Select-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>State</label> <select class="form-control"
+                                                                             data-ng-model="KYCModel.personalInfoModel.state"
+                                                                             data-ng-options="st.name as st.name for st in states">
+                                                    <option value="">-Select-</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>City</label> <input type="text" class="form-control"
+                                                                           data-ng-model="KYCModel.personalInfoModel.city">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.zip.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>ZIP/Pincode<span class="error">*</span></label> <input type="text"
+                                                                                  class="form-control"
+                                                                                  data-ng-model="KYCModel.personalInfoModel.zip" name="zip"
+                                                                                  required numbers-only>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.businessPhone.$invalid && addEditPersonalInfo.$submitted}">
+                                                <label>Business Phone<span class="error">*</span></label> <input type="text"
+                                                                                     class="form-control" name="businessPhone"
+                                                                                     data-ng-model="KYCModel.personalInfoModel.businessPhone"
+                                                                                     required numbers-only>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Home Phone</label> <input type="text"
+                                                                                 class="form-control"
+                                                                                 data-ng-model="KYCModel.personalInfoModel.homePhone" numbers-only>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group">
+                                                <label>Mobile Phone</label> <input type="text"
+                                                                                   class="form-control"
+                                                                                   data-ng-model="KYCModel.personalInfoModel.mobilePhone" numbers-only>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group" data-ng-class="{ 'has-error' : (addEditPersonalInfo.email.$invalid && addEditPersonalInfo.$submitted) || invalidEmail }">
+                                                <label>
+                                                    Email<span class="error">*</span><span id="emailMsg" class="has-error"
+                                                               data-ng-show="addEditPersonalInfo.email.$invalid && !addEditPersonalInfo.email.$error.required">Please enter valid email id</span>
+                                                </label>
+                                                <input type="text" class="form-control" name="email"
+                                                       data-ng-blur="emailValidate(KYCModel.personalInfoModel.email,'email')"
+                                                       data-ng-model="KYCModel.personalInfoModel.email" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group"
+                                                 data-ng-class="{ 'has-error' : addEditPersonalInfo.alternateEmail.$invalid }">
+                                                <label>
+                                                    Alternate Email <span id="emailMsg"
+                                                                          class="has-error"
+                                                                          data-ng-show="addEditPersonalInfo.alternateEmail.$invalid">
+                                                                        Please enter valid email id
+                                                    </span>
+                                                </label> <input type="text" class="form-control" name="alternateEmail"
+                                                                data-ng-blur="emailValidate(KYCModel.personalInfoModel.alternateEmail,'alternateEmail')"
+                                                                data-ng-model="KYCModel.personalInfoModel.alternateEmail">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="relative">
+                        <h3 class="heading">Document Upload</h3>
+                        <i class="pull-right accordion active btn-collapse"></i>
+                        <div class="panel show">
+                            <div class="col-md-12 col-lg-12 col-sm-12 box-theme">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <div class="col-md-4 col-lg-4 col-sm-4">
+                                            <div class="form-group" data-ng-class="{ 'has-error' : docTypeRequired}">
+                                                <label>Document Type<span class="error">*</span></label>
+                                                <select class="form-control" name="documentType" data-ng-model="KYCModel.personalInfoModel.documentType">
+                                                    <option value="">-Select-</option>
+                                                    <option>Proof of ID 1</option>
+                                                    <option>Proof of ID 2</option>
+                                                    <option>Personal W-9-Form</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12 col-sm-12">
+                                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                                <div class="form-group" data-ng-class="{ 'has-error' : idTypeRequired}">
+                                                    <label>ID Type<span class="error">*</span></label>
+                                                    <select class="form-control" name="idType" data-ng-model="KYCModel.personalInfoModel.idType">
+                                                        <option value="">-Select-</option>
+                                                        <option>Passport</option>
+                                                        <option>Driver's Id</option>
+                                                        <option>SSN</option>
+                                                        <option>National Id</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                                <div class="form-group" data-ng-class="{ 'has-error' :  idNoeRequired}">
+                                                    <label>ID No.<span class="error">*</span></label>
+                                                    <input type="text" class="form-control" name="idNo" data-ng-model="KYCModel.personalInfoModel.idNo">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                                <div class="form-group" data-ng-class="{ 'has-error' : countryofissueRequired}">
+                                                    <label>Country Of Issue<span class="error">*</span></label>
+                                                    <select class="form-control" name="idCountry" data-ng-options="country.name as country.name for country in listData.countryList"
+                                                            data-ng-model="KYCModel.personalInfoModel.idCountry">
+                                                        <option value="">-Select-</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12 col-sm-12">
+                                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                                <div class="form-group" data-ng-class="{ 'has-error' : idIssueDateRequired}">
+                                                    <label>ID Issue Date<span class="error">*</span></label>
+                                                    <div class='input-group date' id='idIssueDate'>
+                                                        <input type='text' class="form-control" name="idIssueDate" data-ng-model="KYCModel.personalInfoModel.idIssueDate" readonly="readonly" />
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                                <div class="form-group" data-ng-class="{ 'has-error' : expiryDateRequired}">
+                                                    <label>ID Expiry Date<span class="error">*</span></label>
+                                                    <div class='input-group date' id='idExpiryDate'>
+                                                        <input type='text' class="form-control" name="idExpiryDate" data-ng-model="KYCModel.personalInfoModel.idExpiryDate" readonly="readonly" />
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-lg-4 col-sm-4">
+                                                <div class="form-group margint13">
+                                                    <span class="btn btn-upload btn-file">
+                                                        Upload <input type="file" data-ng-model="KYCModel.personalInfoModel.file" ng-click="validateForm($event)" onchange="angular.element(this).scope().selectFile(this.files)">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="doc-tble col-md-12" data-ng-show="isFileSelected">
+                                        <h3 class="heading">Uploaded Documents</h3>
+                                        <i class="pull-right accordion active btn-collapse"></i>
+                                        <table class="table table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th>Document Type</th>
+                                                    <th>Id Type</th>
+                                                    <th>Document Name</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody ng-repeat="doc in docArray">
+                                                <tr>
+                                                    <td>{{doc.documentType}}</td>
+                                                    <td>{{doc.dtype}}</td>
+                                                    <td>{{doc.orignalName}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="text-right paddingtb15">
+                        <button class="btn btn-default marginr25 btn-save" type="button"
+                                data-ng-click="resetPersonalInfo()">
+                            Reset
+                        </button>
+                        <button class="btn btn-default marginr25 btn-save"
+                                data-ng-click="savePersonalInfo()">
+                            Save
+                        </button>
+                        <button class="btn btn-forgot p-next"
+                                data-ng-click="personalNext()" data-ng-disabled="!isSave">
+                            Next
+                        </button>
+
+                    </div>
+                    <div class="alert alert-success alert-box" role="alert" data-ng-show="success">Personal information saved successfully!!</div>
+                    <div class="alert alert-danger alert-box" role="alert" data-ng-show="error">Error! Please enter the required fields.</div>
+                    <div class="alert alert-danger alert-box" role="alert" id="fileError" style="display:none"></div>
+                    <div class="alert alert-danger alert-box" role="alert" data-ng-show="isPersonalDocUploaded">Please upload atleast one document!</div>
+                    <div class="alert alert-danger alert-box" role="alert" data-ng-show="dateCompare">Id issue date should be less than id expiry date!</div>
+                    <div class="alert alert-danger alert-box" role="alert" data-ng-show="emailCompare">Email and alternate email should not same!</div>
+                    <div class="alert alert-danger alert-box" role="alert" data-ng-show="isServerErrors" ng-bind-html="strError"></div>
+
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-12 ">
+                    <div class="right-pannel" id="sticky">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-8">
+                                <h2 class="right-pannel-heading-top">What We Need</h2>
+                                <div class="content">
+                                    <p></p>
+                                    <span class="bold">ALL DOCUMENTS MUST SHOW THE ADDRESS</span> <span>
+                                        when
+                                        it is present in the document
+                                    </span>
+                                    <ul>
+                                        <li>Valid Passport</li>
+                                        <li>
+                                            Valid Driver's ID / Government Issued ID / Work ID
+                                            with Photo
+                                        </li>
+                                        <li>
+                                            Evidence of company physical address such as utility
+                                            bill or lease agreement
+                                        </li>
+                                        <li>
+                                            Evidence of Source of Funds such as bank statements or
+                                            financial statements
+                                        </li>
+                                    </ul>
+                                    <p class="bold">Only PDF, JPEG or PNG files can be uploaded</p>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-4">
+                                <h2 class="right-pannel-heading">Next Steps</h2>
+                                <div class="content">
+                                    <p>
+                                        Once we have received all your information, we will
+                                        contact you to let you know the KYC process has been completed.
+                                        We will then send you.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </data-ng-form>
+    </div>
+</div>

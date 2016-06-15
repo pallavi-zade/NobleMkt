@@ -1,0 +1,344 @@
+<div id="Account">
+	<div data-ng-controller="homeController">
+		<data-ng-form name="addEditAccountInfo" novalidate>
+
+
+		<div class="col-md-9 col-lg-9 col-sm-12">
+			<div id="tmm-form-wizard">
+				<div class="stage-container">
+					<div class="row">
+						<div class="stage tmm-success col-md-4 col-sm-4 col-xs-4">
+							<div class="stage-header head-icon head-icon-lock">
+								<img src="images/personal.png" alt="" />
+							</div>
+							<div class="stage-content">
+								<h3 class="stage-title">Personal Information</h3>
+
+							</div>
+						</div>
+						<!--/ .stage-->
+
+						<div class="stage tmm-success col-md-4 col-sm-4 col-xs-4">
+							<div class="stage-header head-icon head-icon-user">
+								<img src="images/entity.png" alt="" />
+							</div>
+
+							<div class="stage-content">
+								<h3 class="stage-title">Entity Information</h3>
+
+							</div>
+						</div>
+						<!--/ .stage-->
+
+						<div class="stage tmm-current col-md-4 col-sm-4 col-xs-4 last">
+							<div class="stage-header head-icon head-icon-payment">
+								<img src="images/lock.png" alt="" />
+							</div>
+							<div class="stage-content">
+								<h3 class="stage-title">Account Information</h3>
+
+							</div>
+						</div>
+						<!--/ .stage-->
+					</div>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+			<div class="relative">
+				<h3 class="heading">Bank Account Information</h3>
+				<i class="pull-right accordion active btn-collapse"></i>
+				<div class="panel show">
+					<div class="col-md-12 col-lg-12 col-sm-12 box-theme">
+						<div class="row">
+							<div class="col-md-12 col-lg-12 col-sm-12">
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Name on Account</label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.accountName">
+									</div>
+								</div>
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Account No.</label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.accountNo">
+									</div>
+								</div>
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Payment Code Type (1)</label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.paymentCodeType1">
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-lg-12 col-sm-12">
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Code (1)</label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.code1">
+									</div>
+								</div>
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Bank</label> <input type="text" class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.bank">
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+					</div>
+
+
+
+				</div>
+
+			</div>
+
+			<div class="clearfix"></div>
+			<div class="relative">
+				<h3 class="heading">Bank Account Address</h3>
+				<i class="pull-right accordion active btn-collapse"></i>
+				<div class="panel show">
+					<div class="col-md-12 col-lg-12 col-sm-12 box-theme">
+						<div class="row">
+							<div class="col-md-12 col-lg-12 col-sm-12">
+								<div class="col-md-4 col-lg-4 col-sm-12">
+
+									<div class="form-group" data-ng-class="{ 'has-error' : addEditAccountInfo.address1.$invalid && addEditAccountInfo.$submitted}">
+										<label>Address 1<span class="error">*</span></label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.address1" name="address1" required>
+									</div>
+								</div>
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Address 2</label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.address2">
+									</div>
+								</div>
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Account's Country</label> <select class="form-control"
+        data-ng-model="KYCModel.accountInfoModel.accountsCountry" data-ng-options="country.name as country.name for country in listData.countryList">
+    <option value="">-Select-</option>
+</select>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 col-lg-12 col-sm-12">
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>State/Province</label> <select class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.state">
+											<option value="">-Select-</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-md-4 col-lg-4 col-sm-12">
+
+									<div class="form-group" data-ng-class="{ 'has-error' : addEditAccountInfo.city.$invalid && addEditAccountInfo.$submitted}">
+										<label>City<span class="error">*</span></label> <input type="text" class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.city" name="city" required>
+									</div>
+
+								</div>
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group" data-ng-class="{ 'has-error' : addEditAccountInfo.zip.$invalid && addEditAccountInfo.$submitted}">
+										<label>ZIP/Pincode<span class="error">*</span></label> <input type="text"
+											class="form-control" name="zip" required
+											data-ng-model="KYCModel.accountInfoModel.zip" numbers-only>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+			<div class="relative">
+				<h3 class="heading">
+					Correspondent Bank Account Details <span class="subtextItalics">(if
+						applicable)</span>
+				</h3>
+				<i class="pull-right accordion active btn-collapse"></i>
+				<div class="panel show">
+					<div class="col-md-12 col-lg-12 col-sm-12 box-theme">
+						<div class="col-md-4 col-lg-4 col-sm-12">
+							<div class="form-group">
+								<label>Bank Name</label> <input type="text" class="form-control" data-ng-model="KYCModel.accountInfoModel.bankName">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12 col-lg-12 col-sm-12">
+								<div class="row">
+									<div class="col-md-12 col-lg-12 col-sm-12">
+										<div class="col-md-4 col-lg-4 col-sm-12">
+
+											<div class="form-group">
+												<label>Address 1</label> <input type="text"
+													class="form-control"
+													data-ng-model="KYCModel.accountInfoModel.corraddress1">
+											</div>
+										</div>
+										<div class="col-md-4 col-lg-4 col-sm-12">
+											<div class="form-group">
+												<label>Address 2</label> <input type="text"
+													class="form-control"
+													data-ng-model="KYCModel.accountInfoModel.corraddress2">
+											</div>
+										</div>
+										<div class="col-md-4 col-lg-4 col-sm-12">
+                                            <div class="form-group" data-ng-class="{ 'has-error' : addEditAccountInfo.corrAccountsCountry.$invalid && addEditAccountInfo.$submitted}">
+                                                <label>Account's Country</label> <select class="form-control"
+                                                                                         data-ng-model="KYCModel.accountInfoModel.corrAccountsCountry" name="corrAccountsCountry"
+                                                                                         data-ng-options="country.name as country.name for country in listData.countryList">
+                                                    <option value="">-Select-</option>
+                                                </select>
+                                            </div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-12 col-lg-12 col-sm-12">
+										<div class="col-md-4 col-lg-4 col-sm-12">
+											<div class="form-group">
+												<label>State/Province</label> <select class="form-control"
+													data-ng-model="KYCModel.accountInfoModel.corrstate">
+													<option value="">-Select-</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-4 col-lg-4 col-sm-12">
+											<div class="form-group">
+												<label>City</label> <input type="text" class="form-control"
+													data-ng-model="KYCModel.accountInfoModel.corrcity">
+											</div>
+
+										</div>
+										<div class="col-md-4 col-lg-4 col-sm-12">
+											<div class="form-group">
+												<label>ZIP/Pincode</label> <input type="text"
+													class="form-control"
+													data-ng-model="KYCModel.accountInfoModel.corrzip" numbers-only>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="relative">
+				<h3 class="heading">Wallet Account Address</h3>
+				<i class="pull-right accordion active btn-collapse"></i>
+				<div class="panel show">
+					<div class="col-md-12 col-lg-12 col-sm-12 box-theme">
+						<div class="row">
+							<div class="col-md-12 col-lg-12 col-sm-12">
+								<div class="col-md-4 col-lg-4 col-sm-12">
+									<div class="form-group">
+										<label>Name on Account</label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.walletAccountName">
+									</div>
+								</div>
+								<div class="col-md-4 col-lg-4 col-sm-12">
+
+									<div class="form-group">
+										<label>Wallet Address </label> <input type="text"
+											class="form-control"
+											data-ng-model="KYCModel.accountInfoModel.walletAddress">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-right paddingtb15">
+                <button class="btn btn-default marginr25 btn-save" type="button"
+                        data-ng-click="resetAccountInfo()">
+                    Reset
+                </button>
+				<button class="btn btn-reset a-prev marginr25"
+					data-ng-click="accountPrev()">Previous</button>
+				<button class="btn btn-save" data-ng-click="saveAccountInfo()">Submit</button>
+			</div>
+			<div data-ng-include src="'app/home/thankyouPage.html'" class="full-width"></div>
+			
+			<div class="alert alert-success alert-box" role="alert"
+				data-ng-show="success">Account Information saved
+				successfully!!</div>
+			<div class="alert alert-danger alert-box" role="alert"
+				data-ng-show="error">Error! Please enter the required fields.</div>
+
+		</div>
+		<div class="col-md-3 col-lg-3 col-sm-12 ">
+			<div class="right-pannel">
+				<div class="row">
+					<div class="col-md-12 col-sm-8">
+						<h2 class="right-pannel-heading-top">What We Need</h2>
+						<div class="content">
+							<p>This is the next step in the KYC (Know Your Customer)
+								process. So Noble can set up a trading account in your name we
+								need to be able have proof of who you are. The following
+								documents are acceptable, and you can submit on primary ID
+								(Passport) or two secondary ID's (Driver's ID, any Government
+								Issued ID, or Work ID with Photo).</p>
+							<span class="bold">ALL DOCUMENTS MUST SHOW THE ADDRESS</span> <span>when
+								it is present the document</span>
+							<ul>
+								<li>Valid Passport</li>
+								<li>Valid Driver's ID / Government Issued ID / Work ID with
+									Photo</li>
+								<li>Evidence of company physical address such as utility
+									bill or lease agreement</li>
+								<li>Evidence of Source of Funds such as bank statements or
+									financial statements</li>
+							</ul>
+							<p class="bold">Only PDF, JPEG or PNG files can be uploaded</p>
+
+						</div>
+					</div>
+					<div class="col-md-12 col-sm-4">
+						<h2 class="right-pannel-heading">Next Steps</h2>
+						<div class="content">
+							<p>Once we have received all your information, we will
+								contact you to let you know the KYC process has been completed.
+								We will then send you.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</data-ng-form>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="en">
+<script src="libs/angular.min.js"></script>
+    <script src="libs/angular-local-storage.min.js"></script>
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="libs/moment.js"></script>
+    <script src="libs/bootstrap-datetimepicker.min.js"></script>
+    <script src="libs/custom.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/shared/factory/factory.js"></script>
+    <script src="app/login/LoginController.js"></script>
+    <script src="app/home/HomeController.js"></script>
+    <script src="app/home/homeService.js"></script>
+    <script src="app/shared/filters/socialSecurityNumber.filter.js"></script>
+    <script src="app/shared/directives/emailValidate.directive.js"></script>
+    <script src="app/shared/directives/ssn.directive.js"></script>  
+<head>
+    <meta charset="utf-8">
+    <title>Noble Markets</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/style.css" />
+   
+</head>
+<body>
+    <header class="main">
+        <div class="container-fluid">
+            <a class="logo" href="#"><img src="images/w-logo.png" alt="logo" /></a>
+        </div>
+    </header>
+    <div class="container-fluid content-area">
+       
+        <div class="tab-content">
+            <div data-ng-include src="'app/home/personalInfo.html'" class="full-width"></div>
+            <div data-ng-include src="'app/home/entityInfo.html'" class="full-width"></div>
+            <div data-ng-include src="'app/home/accountInfo.html'" class="full-width"></div>
+        </div>
+    </div>
+  
+
+
+  
+</body>
+</html>
+
+<div id="modalConfirmYesNo" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="lblTitleConfirmYesNo" class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p id="lblMsgConfirmYesNo">Are you sure you want overwrite previous file?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btnYes"
+                        type="button" class="btn btn-primary">
+                    Yes
+                </button>
+                <button id="btnNo"
+                        type="button" class="btn btn-default">
+                    No
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
